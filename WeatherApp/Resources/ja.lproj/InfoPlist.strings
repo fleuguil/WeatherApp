@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WeatherApp
+
+  Created by Guillaume Fleury on 2025/06/20.
+  
+*/
+
+NSLocationWhenInUseUsageDescription = "現在地の天気を表示するために位置情報を使用します。";

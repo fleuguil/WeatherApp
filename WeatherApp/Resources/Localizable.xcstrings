@@ -1,0 +1,242 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Allow Location" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置情報を許可する"
+          }
+        }
+      }
+    },
+    "An unexpected error occurred. Please try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "予期しないエラーが発生しました。"
+          }
+        }
+      }
+    },
+    "Could not complete the request. Please try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リクエストを完了できませんでした。再度お試しください。"
+          }
+        }
+      }
+    },
+    "Current Location" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在地"
+          }
+        }
+      }
+    },
+    "Enable Location" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置情報を有効にする"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
+        }
+      }
+    },
+    "Failed to search for location. Please try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "地名検索が失敗しました。再度お試しください。"
+          }
+        }
+      }
+    },
+    "Home" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム"
+          }
+        }
+      }
+    },
+    "home_description" : {
+      "comment" : "Description on the home screen"
+    },
+    "home_title" : {
+      "comment" : "Title of the home screen"
+    },
+    "Loading..." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "読み込み中…"
+          }
+        }
+      }
+    },
+    "Location access is denied. Please enable it in Settings to use this feature." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置情報のアクセスが拒否されました。設定から位置情報を許可してください。"
+          }
+        }
+      }
+    },
+    "N/A" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未定/なし"
+          }
+        }
+      }
+    },
+    "No forecast data available for this location." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この地域の天気予報が見つかりませんでした。"
+          }
+        }
+      }
+    },
+    "No internet connection. Please check your settings." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インターネットに接続されていません。設定をご確認ください。"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Retry" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再試行"
+          }
+        }
+      }
+    },
+    "Search for a place" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を検索"
+          }
+        }
+      }
+    },
+    "Something went wrong with the request. Please try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リクエストに問題が発生しました。再度お試しください。"
+          }
+        }
+      }
+    },
+    "The request timed out. Please check your connection and try again." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リクエストがタイムアウトしました。接続を確認して再試行してください。"
+          }
+        }
+      }
+    },
+    "The server is not responding. Please try again later." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サーバーから応答がありません。しばらくしてから再試行してください。"
+          }
+        }
+      }
+    },
+    "We couldn’t read the data from the server. Please try again later." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サーバーからのデータを読み取れませんでした。しばらくしてから再試行してください。"
+          }
+        }
+      }
+    },
+    "We need your location to provide the most accurate weather forecast for where you are right now." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在地の正確な天気予報を提供するために、位置情報の取得が必要です。"
+          }
+        }
+      }
+    },
+    "Weather" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気予報"
+          }
+        }
+      }
+    },
+    "weather_error" : {
+      "comment" : "Error message"
+    },
+    "weather_loading" : {
+      "comment" : "Loading message"
+    },
+    "weather_title" : {
+      "comment" : "Weather screen title"
+    }
+  },
+  "version" : "1.0"
+}

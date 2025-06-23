@@ -20,8 +20,4 @@ final class MockSettingsRepository: SettingsRepositoryProtocol {
     }
 
     var hasSeenLocationExplanationResult = false
-
-//    init(hasSeenLocationExplanationResult: Bool = false) {
-//        self.hasSeenLocationExplanationResult = hasSeenLocationExplanationResult
-//    }
 }

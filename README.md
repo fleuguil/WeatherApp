@@ -1,28 +1,116 @@
-# WeatherApp
+<h1>
+  <img src="https://github.com/user-attachments/assets/364a0965-6a06-47a6-bed0-e8246a49e4c5" width="48" style="vertical-align:middle; margin-right:8px;"/>
+  WeatherApp/天気アプリ
+</h1>
 
-A simple iOS weather application using SwiftUI and MVVM architecture.  
-Displays weather forecasts using the OpenWeatherMap API.
 
-## Features
+SwiftUI と MVVM アーキテクチャを使用したシンプルな iOS 天気アプリケーションです。
+OpenWeatherMap API を使用して天気予報を表示します。
 
-- Current and 5-day forecast
-- Location-based search
-- Dark mode support
-- Error handling with localized messages
+## 機能
 
-## Screenshots
+- モダンな SwiftUI 実装（MVVM + @Observable/Swift concurrency）
+- 外部ライブラリ不使用
+- 四つの地域(東京・兵庫・大分・北海道)+現在地を表示
+- 現在地の地名を取得し表示
+- 現在の天気と5日間の予報
+- 地名から検索
+- ダークモード対応
+- ローカライズされたエラーメッセージによるエラーハンドリング(英語・日本語)
 
-(Add screenshots here if available)
+## 動作環境
 
-## Requirements
-
-- iOS 16+
-- Xcode 15+
+- iOS 17+
+- Xcode 16+
 - Swift 5.9
 
-## Installation
+## 画面イメージ
 
-Clone the repository and open the `.xcodeproj` file in Xcode.
+|天気アプリ(動画)|
+|:-:|
+|<video src="https://github.com/user-attachments/assets/e763af91-e0fc-4006-8c96-5060caa75e8b">|
+
+
+ ホーム画面          　|  ホーム画面(dark) | ホーム画面(検索) |  天気予報(5日間)画面 |  位置情報許可画面
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+<img src="https://github.com/user-attachments/assets/f0022506-0e57-4939-8da0-028270ec719c" width="300" />   |  <img src="https://github.com/user-attachments/assets/33f4b169-2b3c-40e4-a984-df5c25984333" width="300" />   |<img src="https://github.com/user-attachments/assets/bff18a31-1204-4a8f-b9f9-7198dd477844" width="300" /> |  <img src="https://github.com/user-attachments/assets/7b36d932-5962-4c9a-b561-0ede39b6fa8d" width="300" /> |  <img src="https://github.com/user-attachments/assets/b0bf9676-947a-4fba-9c9f-7cbb50b29725" width="300" /> 
+
+## インストール方法
+
+リポジトリをクローンし、Xcodeで .xcodeproj ファイルを開いてください。
 
 ```bash
-git clone https://github.com/your-username/weather-app.git
+git clone https://github.com/fleuguil/WeatherApp.git
+```
+もしくは
+```bash
+git clone git@github.com:fleuguil/WeatherApp.git
+```
+Secrets.xcconfig.example をコピーして Secrets.xcconfig という名前で作成してください。
+
+```bash
+cp WeatherApp/App/Secrets.xcconfig.example WeatherApp/App/Secrets.xcconfig
+```
+
+Secrets.xcconfig 内の WEATHER_API_KEY に OpenWeatherMap の API キーを入力してください。
+
+
+## 機能カバレッジ
+
+| 機能                     | 説明                                         | 対応状況 | 仕様書に記載 |備考（Note） 
+|--------------------------|----------------------------------------------|----------|----------|----------|
+| 現在の天気               | 現在の気温や天気情報を取得し表示                   | ✅        | ✅ |    |
+| 5日間の天気予報         | 週間予報を取得し表示           | ✅        | ✅   ||
+| ロケーション検索         | 地名で検索可能                             | ✅        | ✅  ||
+| ローカライズ             | 複数の言語に対応                             | ✅        | ❌  |　仕様には記載されていないが、必要と判断(少なくても英語を追加)　|
+| エラーハンドリング       | APIエラー時にエラー内容を表示、場合による「retry」ボタン             | ✅        | ✅  ||
+| 位置情報の許可           | 使用理由の説明とともに許可をリクエスト         | ✅        | 🔶　 | 仕様には記載されていないが、説明画面を追加したほうがよいと判断  |
+| 天気情報をキャッシュする| 当日の週間予報(天気画面) | ✅        | ✅　 |   |
+| お気に入り機能| ホーム画面に項目(地名)を追加・削除する | ❌        | 🔶　 |  一般な天気予報アプリはやるべきだが、固定の四つの地域のみなのか、仕様が曖昧  |
+
+
+## 未対応事項 / 改善予定
+
+| 項目                    | 内容の説明                                           | 備考             |
+|-------------------------|------------------------------------------------------|------------------|
+| コードコメントの追加     | 日本語・英語のコメントが混ざってる, DocCに未対応     | 必要に応じて追加 |
+| テストのカバレッジ拡大   | UnitTestは一HomeViewModelの一部のみ     |  外部ライブラリを利用する必要(Cuckooなど)                |
+
+## 仕様に対する理解とコメント
+
+| # | 仕様内容                                                                 | 理解度 | コメント                                     |
+|---|--------------------------------------------------------------------------|--------|----------------------------------------------|
+| 1 | ユーザーは、都市名（または緯度経度）を入力して天気情報を取得できる。     | ⭐⭐☆ | 緯度経度でも入力は必要なのか(手動で数字を入力することか?)             |
+| 2 | 取得した天気情報は、現在の天気や週間予報として表示される。               | ⭐⭐⭐ | API 構造を理解済。現在の天気(weather),5日間予報は3時間ごとに取得(forecast)      |
+| 3 | ユーザーは、異なる都市の天気情報を切り替えることができる。               | ⭐⭐☆ | ホーム画面で都市・場所の天気情報を選択できること?                   |
+| 4 | 天気情報は、オープンウェザーマップなどのウェブAPIから取得する。           | ⭐⭐⭐ | OpenWeatherMap APIの現在天気(weather)、5日間予報、現在地名のAPIを利用する       |
+| 5 | 取得した天気情報は、キャッシュしてオフラインでも表示できるようにする。     | ⭐⭐⭐ | 5日間予報のみをキャッシュする |
+
+## 仕様の矛盾点について
+
+### 例：検索機能の有無に関する記述
+
+- **ページ 1 の記述：**
+  > ユーザーは、都市名（または緯度経度）を入力して天気情報を取得できる。
+
+  → この文からは、**ユーザーが任意の都市名や緯度経度を入力して検索する機能**が必要だと理解できる。
+
+- **ページ 2 の記述：**
+  > ホーム画面  
+  > 東京・兵庫・大分・北海道をリストで表示する  
+  > リストタップ時、天気画面へ遷移する
+
+  → この記述からは、**4つの都市に限定した静的なリスト表示**を想定しているように見える。
+
+### 解釈の差異：
+- ページ 1 は検索機能の必要性を示唆している。
+- ページ 2 は固定された都市リストのみを表示する仕様のように読める。
+
+このように仕様書の中で意図が曖昧または矛盾している箇所については、確認・すり合わせが必要。
+
+
+
+
+
+
+

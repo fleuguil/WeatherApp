@@ -13,7 +13,7 @@ struct WeatherAppApp: App {
         // mainスレードでやるけど、そんなに時間がかからない
         ForecastCache().cleanUp()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             HomeView()

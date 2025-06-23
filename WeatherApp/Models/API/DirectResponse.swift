@@ -1,5 +1,5 @@
 //
-//  FoundLocation.swift
+//  DirectResponse.swift
 //  WeatherApp
 //
 //  Created by Guillaume Fleury on 2025/06/21.
@@ -12,5 +12,4 @@ struct DirectResponse: Decodable {
     let local_names: [String: String]?
     let lat: Double
     let lon: Double
-
 }

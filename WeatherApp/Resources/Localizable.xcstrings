@@ -82,12 +82,6 @@
         }
       }
     },
-    "home_description" : {
-      "comment" : "Description on the home screen"
-    },
-    "home_title" : {
-      "comment" : "Title of the home screen"
-    },
     "Loading..." : {
       "localizations" : {
         "ja" : {
@@ -227,15 +221,6 @@
           }
         }
       }
-    },
-    "weather_error" : {
-      "comment" : "Error message"
-    },
-    "weather_loading" : {
-      "comment" : "Loading message"
-    },
-    "weather_title" : {
-      "comment" : "Weather screen title"
     }
   },
   "version" : "1.0"

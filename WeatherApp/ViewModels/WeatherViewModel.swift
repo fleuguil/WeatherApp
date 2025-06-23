@@ -14,12 +14,12 @@ enum NoForecastError: Error {
 @Observable
 final class WeatherViewModel {
     let weatherLocation: WeatherLocation
-    
+
     var forecast: Forecast?
     var groupedByDateForecasts: [(Date, [ForecastPeriod])] {
         // 過去のforecastはremoveする
         let forecastPeriods = (forecast?.list ?? []).filter { $0.date >= Date() }
-        
+
         return Dictionary(grouping: forecastPeriods) { forecastPeriod in
             Calendar.current.startOfDay(for: forecastPeriod.date)
         }
@@ -28,16 +28,17 @@ final class WeatherViewModel {
         }
         .sorted { $0.key < $1.key }
     }
+
     var isLoading: Bool = false
-    var errorMessage: String? = nil
-    
+    var errorMessage: String?
+
     private let repository: WeatherRepositoryProtocol
-    
+
     var locationName: String {
         // what was passed
         let locationName = weatherLocation.names?[Locale.current.language.languageCode?.identifier ?? ""]
         let cityName = forecast?.city.name
-        
+
         return {
             switch (locationName, cityName) {
             case let (loc?, city?) where loc != city:
@@ -51,22 +52,20 @@ final class WeatherViewModel {
             }
         }()
     }
-    
+
     init(weatherLocation: WeatherLocation, repository: WeatherRepositoryProtocol) {
         self.weatherLocation = weatherLocation
         self.repository = repository
     }
-    
+
     func fetch() async {
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
-        
+
         do {
-//                        let duration = UInt64(1 * 1_000_000_000)
-//                        try? await Task.sleep(nanoseconds: duration)
             forecast = try await repository.fetchForecasts(for: weatherLocation.lat, lon: weatherLocation.lon)
-            
+
             // empty forecast?
             if forecast?.list.isEmpty == true {
                 throw NoForecastError.general

@@ -15,7 +15,6 @@ struct WeatherInfoCardView: View {
     let iconCode: String?
 
     var body: some View {
-
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color(.systemGray6))
@@ -26,19 +25,19 @@ struct WeatherInfoCardView: View {
                     VStack(alignment: .leading) {
                         Text(title)
                             .font(.headline)
-                        
+
                         Spacer().frame(height: 16)
-                        
+
                         Text(description)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    
+
                     Spacer()
-                    
+
                     HStack(alignment: .center, spacing: 8) {
                         WeatherIconView(iconCode: iconCode)
-                        
+
                         Text(temperature)
                             .font(.system(size: 32, weight: .bold))
                     }
@@ -50,7 +49,7 @@ struct WeatherInfoCardView: View {
         }
         .frame(height: 70)
         .padding(.vertical, 4)
-    }    
+    }
 }
 
 struct WeatherIconView: View {
@@ -58,7 +57,8 @@ struct WeatherIconView: View {
 
     var body: some View {
         if let iconCode,
-           let url = URL(string: "https://openweathermap.org/img/wn/\(iconCode)@2x.png") {
+           let url = URL(string: "https://openweathermap.org/img/wn/\(iconCode)@2x.png")
+        {
             // キャッシュされてない、外部ライブラリが必要
             AsyncImage(url: url) { image in
                 image

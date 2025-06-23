@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  WeatherLocationCardView.swift
 //  WeatherApp
 //
 //  Created by Guillaume Fleury on 2025/06/21.
@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
-
 struct WeatherLocationCardView: View {
     let weatherLocation: WeatherLocation? // when nil, current location
- 
+
     var body: some View {
         let temperature: String
         if let temp = weatherLocation?.currentWeather?.temp {
@@ -34,5 +33,5 @@ struct WeatherLocationCardView: View {
 }
 
 #Preview {
-    WeatherLocationCardView(weatherLocation: WeatherLocation(names: ["en": "Tokyo","ja":"東京"], lat: 0, lon: 0, currentWeather: CurrentWeather(name: "", description: "sunny", icon: "01d", temp: 30)))
+    WeatherLocationCardView(weatherLocation: WeatherLocation(names: ["en": "Tokyo", "ja": "東京"], lat: 0, lon: 0, currentWeather: CurrentWeather(name: "", description: "sunny", icon: "01d", temp: 30)))
 }

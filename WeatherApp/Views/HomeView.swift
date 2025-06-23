@@ -10,14 +10,14 @@ import SwiftUI
 struct HomeView: View {
     @State var viewModel: HomeViewModel
     @State private var selectedFavorite: WeatherLocation?
-    
+
     init() {
         // TODO: WeatherRepositoryをDI?
-        self._viewModel = State(initialValue: HomeViewModel(weatherRepository: WeatherRepository(apiKey: Config.apiKey), settingsRepository: SettingsRepository(), locationManager: LocationManager()))
+        _viewModel = State(initialValue: HomeViewModel(weatherRepository: WeatherRepository(apiKey: Config.apiKey), settingsRepository: SettingsRepository(), locationManager: LocationManager()))
     }
-    
+
     var body: some View {
-        NavigationStack() {
+        NavigationStack {
             List {
                 if viewModel.isSearching {
                     ForEach(viewModel.searchResults, id: \.self) { location in
@@ -58,7 +58,7 @@ struct HomeView: View {
             }
             .navigationTitle(Strings.Home.title)
             .navigationBarTitleDisplayMode(.large)
-        }        
+        }
         .alert(Strings.error, isPresented: .init(
             get: { viewModel.errorMessage != nil },
             set: { newValue in
@@ -89,14 +89,13 @@ struct HomeView: View {
         .onSubmit(of: .search) {
             viewModel.performSearch()
         }
-        .onChange(of: viewModel.searchQuery) { old, new in
+        .onChange(of: viewModel.searchQuery) { _, new in
             if new.isEmpty {
                 viewModel.cancelSearch()
             }
         }
     }
 }
-
 
 #Preview {
     HomeView()

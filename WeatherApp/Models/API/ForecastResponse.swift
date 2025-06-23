@@ -1,5 +1,5 @@
 //
-//  OpenWeatherResponse.swift
+//  ForecastResponse.swift
 //  WeatherApp
 //
 //  Created by Guillaume Fleury on 2025/06/19.
@@ -28,7 +28,7 @@ struct Weather: Codable {
 }
 
 struct City: Codable {
-    let name: String  // should be in the requested locale
+    let name: String // should be in the requested locale
     let coord: Coordinates
 }
 
